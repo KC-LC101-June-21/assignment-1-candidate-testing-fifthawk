@@ -47,7 +47,7 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   let grade= 0
   for(let i in candidateAnswers) {
-    candidateAnswers.indexOf(correctAnswers[i]) != -1 ? grade++ : null
+    candidateAnswers.indexOf(correctAnswers[i]) != -1 && grade++
   }
 
   console.log(`${grade}/5 = ${(grade/5) * 100 }%`)
