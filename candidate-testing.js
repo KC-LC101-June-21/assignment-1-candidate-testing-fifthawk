@@ -5,9 +5,9 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question;
-let correctAnswer;
-let candidateAnswer;
+let question= 'Who was the first American woman in space? ';
+let correctAnswer = 'Sally Ride';
+let candidateAnswer = '';
 let questions= [
   'Who was the first American woman in space? ',
   'True or false: 5 kilometer == 5000 meters? ',
@@ -32,6 +32,7 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+  candidateAnswer  = input.question(question)
   candidateAnswers[0] = input.question(questions[0])
   candidateAnswers[1] = input.question(questions[1])
   candidateAnswers[2] = input.question(questions[2])
@@ -45,11 +46,11 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  candidateAnswer == correctAnswer ? console.log('correct') : console.log('incorrect')
   let grade= 0
   for(let i in candidateAnswers) {
     candidateAnswers.indexOf(correctAnswers[i]) != -1 && grade++
   }
-
   console.log(`${grade}/5 = ${(grade/5) * 100 }%`)
  
   return grade;
