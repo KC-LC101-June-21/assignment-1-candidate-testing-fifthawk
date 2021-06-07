@@ -32,26 +32,37 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  candidateAnswer  = input.question(question)
-  candidateAnswers[0] = input.question(questions[0])
-  candidateAnswers[1] = input.question(questions[1])
-  candidateAnswers[2] = input.question(questions[2])
-  candidateAnswers[3] = input.question(questions[3])
-  candidateAnswers[4] = input.question(questions[4])
-  
-  
+  // candidateAnswer  = input.question(question)
+  for (let i = 0; i < questions.length;i++){
+    candidateAnswers[i] = input.question(questions[i])
+  }
 
 }
-
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  candidateAnswer == correctAnswer ? console.log('correct') : console.log('incorrect')
+  /*candidateAnswer == correctAnswer ? console.log('correct') : console.log('incorrect')
+  */
   let grade= 0
-  for(let i in candidateAnswers) {
-    candidateAnswers.indexOf(correctAnswers[i]) != -1 && grade++
+  let uCA = candidateAnswers.map(obj => obj.toUpperCase())
+  let uCoA = correctAnswers.map(obj => obj.toUpperCase())
+  for(let i in uCA) {
+    uCA.indexOf(uCoA[i]) != -1 && grade++
   }
-  console.log(`${grade}/5 = ${(grade/5) * 100 }%`)
+  
+  for(let i = 0; i < questions.length; i++){
+    console.log(`${i + 1}.) ${questions[i]}
+    Your Answer: ${candidateAnswers[i]} 
+    Correct Answer: ${correctAnswers[i]} 
+    ` )
+  }
+  let score = (grade / 5 ) * 100
+  let pass = ''
+  score >= 80 ? pass = 'Passed' : pass = 'Failed'
+  console.log(`
+  >>>>> Overall Grade: ${grade}/5 Correct Answers = ${score}% <<<<<
+  >>>>> Status: ${pass} <<<<<
+  `)
  
   return grade;
 }
