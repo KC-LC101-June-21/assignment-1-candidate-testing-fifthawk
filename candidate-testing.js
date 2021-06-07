@@ -64,7 +64,7 @@ function gradeQuiz(candidateAnswers) {
   >>>>> Status: ${pass} <<<<<
   `)
  
-  return grade;
+  return scoreee;
 }
 
 function runProgram() {
