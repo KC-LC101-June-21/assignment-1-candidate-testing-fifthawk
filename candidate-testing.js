@@ -32,7 +32,7 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  // candidateAnswer  = input.question(question)
+  candidateAnswer  = input.question(question)
   for (let i = 0; i < questions.length;i++){
     candidateAnswers[i] = input.question(questions[i])
   }
@@ -41,8 +41,8 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  /*candidateAnswer == correctAnswer ? console.log('correct') : console.log('incorrect')
-  */
+  candidateAnswer == correctAnswer ? console.log('correct') : console.log('incorrect')
+  
   let grade= 0
   let uCA = candidateAnswers.map(obj => obj.toUpperCase())
   let uCoA = correctAnswers.map(obj => obj.toUpperCase())
